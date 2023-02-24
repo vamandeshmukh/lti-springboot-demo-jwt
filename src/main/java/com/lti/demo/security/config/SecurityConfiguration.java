@@ -37,7 +37,7 @@ public class SecurityConfiguration {
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 				.authenticationProvider(authenticationProvider)
 				.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class).logout()
-				.logoutUrl("/api/v1/auth/logout").addLogoutHandler(logoutHandler)
+				.logoutUrl("/auth/logout").addLogoutHandler(logoutHandler)
 				.logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext());
 
 		return http.build();
